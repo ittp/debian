@@ -1,0 +1,6 @@
+
+
+ip route add {NETWORK/MASK} via {GATEWAYIP}
+ip route add {NETWORK/MASK} dev {DEVICE}
+ip route add default {NETWORK/MASK} dev {DEVICE}
+ip route add default {NETWORK/MASK} via {GATEWAYIP}
