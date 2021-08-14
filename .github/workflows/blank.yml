@@ -1,6 +1,4 @@
-name: Install
-on: [workflow-dispatch]
-
+- name: Install
 # You may pin to the exact commit or the version.
 # uses: Flaavius/ssh-commands@79ae027ae651731b483988ee69b2f628c75422f1
 uses: Flaavius/ssh-commands@1.0
