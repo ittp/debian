@@ -1,0 +1,9 @@
+
+zabbix=10050
+nginx=8888
+psql=5432
+dns=53
+
+ssh root@10.10.10.1 -T -vvv -R *:10000:0.0.0.0:10000 -R *:3333:localhost:22580  
+
+# LocalForward *:10000 localhost:10000
