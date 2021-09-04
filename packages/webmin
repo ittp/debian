@@ -1,6 +1,0 @@
-#!/bin/sh
-VER="1.981"
-export WEBMIN_FILE="webmin_${VER}_all.deb"
-
-wget http://prdownloads.sourceforge.net/webadmin/webmin_1.981_all.deb
-dpkg --install webmin_1.981_all.deb
