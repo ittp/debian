@@ -1,0 +1,9 @@
+#!/bin/sh
+URL="https://code-server.dev/install.sh"
+CSI=/tmp/csi.sh
+wget $URL > $CSI
+
+chmod +x $CSI
+/bin/sh $CSI
+
+#/tmp/csi.sh 
