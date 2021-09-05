@@ -6,3 +6,4 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key a
 
 # Update the package lists:
 apt-get update
+apt-get -y install postgresql
