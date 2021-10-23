@@ -29,7 +29,20 @@ install_node() {
   apt-get install -y nodejs
 }
 
-install_yarn() {
+
+yarn_pubkey() {
+export YARN_PUBKEY="${{github.secrets.YARN_PUBKEY}}"
+
+echo YARN_PUBKEY
+}
+
+
+yarn_init() {
+  # source . ${{github.workspace}}/packages/yarn
+#apt-get update && apt-get install -y curl wget nano sudo 
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg >/dev/null 
+echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list 
+
   #curl -fsSL $YARN_URL | bash -
 #  apt-get install -y nodejs
 }
@@ -41,3 +54,10 @@ echo $NODE_VER
 else
   echo "NODE version?"
 fi
+
+
+
+install_all() {
+  export APPS="nodejs yarn"
+  apt-get update && apt-get install $APPS -y
+}
