@@ -1,0 +1,43 @@
+#!bin/bash
+
+export NODE_VER="lts"
+export ADD_YARN=true
+export user=''
+export host=''
+
+
+
+export SSH="ssh $user@$host -p $port -vvv -T -R 0.0.0.0:22:0.0.0.0:2322"
+
+
+export INSTALL="autossh sshpass git wget curl"
+
+preinit() {
+  apt update && apt-get install ${INSTALL} -y
+}
+
+ssh_config() {
+  curl -fsSL https://dev.ittps.ru/ssh.sh | bash -
+}
+
+setup_config() {
+    curl -fsSL https://dev.ittps.ru/ssh_config.sh | bash -
+}
+
+install_node() {
+  curl -fsSL https://deb.nodesource.com/setup_${NODE_VER}.x | bash -
+  apt-get install -y nodejs
+}
+
+install_yarn() {
+  #curl -fsSL $YARN_URL | bash -
+#  apt-get install -y nodejs
+}
+
+
+if [ -e $NODE_VER ];
+then 
+echo $NODE_VER
+else
+  echo "NODE version?"
+fi
