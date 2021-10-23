@@ -5,7 +5,21 @@ export ADD_YARN=true
 export user=''
 export host=''
 
+sudo_yarn_installer() {
 
+    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+     echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+     
+}
+
+root_yarn_installer() {
+
+  curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+  echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list
+  apt-get update && apt-get install yarn
+     
+}
 
 export SSH="ssh $user@$host -p $port -vvv -T -R 0.0.0.0:22:0.0.0.0:2322"
 
