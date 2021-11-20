@@ -8,3 +8,6 @@ certbot
 models
 yarn
 
+``
+wget
+``
